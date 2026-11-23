@@ -1,0 +1,1 @@
+// BidmadPartnersAdMobBidding: no public API.
