@@ -6,20 +6,20 @@ import PackageDescription
 // Apps must link with -ObjC (Other Linker Flags): Google Mobile Ads finds the
 // static adapters by class name, and several network SDKs require it.
 //
-// BidmadPartnersAdMobBiddingSDKs: the dynamic network SDKs alone. An app whose ads code lives in
+// BidmadPartnersAdMobBiddingDynamicSDKs: the dynamic network SDKs alone. An app whose ads code lives in
 // a separate framework (Unity's UnityFramework) links BidmadPartnersAdMobBidding there and adds
-// BidmadPartnersAdMobBiddingSDKs to the app target, so the SDKs are embedded and nothing is
+// BidmadPartnersAdMobBiddingDynamicSDKs to the app target, so the SDKs are embedded and nothing is
 // linked twice. Other apps add both products to the app target.
 let package = Package(
   name: "BidmadPartnersAdMobBidding",
   platforms: [.iOS(.v15)],
   products: [
     .library(name: "BidmadPartnersAdMobBidding", targets: ["BidmadPartnersAdMobBidding"]),
-    .library(name: "BidmadPartnersAdMobBiddingSDKs", targets: ["BidmadPartnersAdMobBiddingSDKs"]),
+    .library(name: "BidmadPartnersAdMobBiddingDynamicSDKs", targets: ["BidmadPartnersAdMobBiddingDynamicSDKs"]),
   ],
   dependencies: [
     .package(url: "https://github.com/googleads/googleads-mobile-ios-mediation-liftoffmonetize.git", exact: "7.7.800"),
-    .package(url: "https://github.com/googleads/googleads-mobile-ios-mediation-pangle.git", exact: "8.4.00500"),
+    .package(url: "https://github.com/googleads/googleads-mobile-ios-mediation-pangle.git", exact: "8.4.00700"),
     .package(url: "https://github.com/googleads/googleads-mobile-ios-mediation-dtexchange.git", exact: "8.5.100"),
     .package(url: "https://github.com/googleads/googleads-mobile-ios-mediation-unity.git", exact: "4.21.000"),
     .package(url: "https://github.com/googleads/googleads-mobile-ios-mediation-applovin.git", exact: "13.7.000"),
@@ -51,7 +51,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "BidmadPartnersAdMobBiddingSDKs",
+      name: "BidmadPartnersAdMobBiddingDynamicSDKs",
       dependencies: [
         .product(name: "AppLovinSDK", package: "AppLovin-MAX-Swift-Package"),
         .product(name: "VungleAdsSDK", package: "VungleAdsSDK-SwiftPackageManager"),

@@ -1,1 +1,0 @@
-// BidmadPartnersAdMobBiddingSDKs: no public API.
